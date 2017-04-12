@@ -3,27 +3,47 @@
 '''
 
 
-import song_parsers.plaintext_parser
-import unidecode
+from song_object import Song
+import format_parsers.plaintext_parser
+
+# import unidecode
 
 
-def load(filename):
-    ''' Loads the given filename into a song '''
+class Reader(object):
+    ''' Reads a file into the Song object '''
+    def __init__(self):
+        pass
 
-# unidecode.unidecode(text)
+    def read(self, file_handle):
+        ''' Reads a file into the Song object '''
+        # string_to_parse = unidecode.unidecode(file_handle.read())
+        string_to_parse = file_handle.read()
+        new_song = format_parsers.plaintext_parser.decode(string_to_parse)
+        return new_song
 
-    #~ def parse_file(self, song_filename):
-        #~ ''' Extracts the song string from the given file and parses '''
-        #~ pass
 
-    #~ def parse_wesite(self, web_url):
-        #~ ''' Extracts the song string from the given website and parses '''
-        #~ pass
+class Writer(object):
+    ''' Writes a file from the Song object '''
+    def __init__(self):
+        pass
 
-# def save(song, filename)
+    def write(self, song_object, file_handle):
+        ''' Writes a file from the Song object '''
+        song_string = format_parsers.plaintext_parser.encode(song_object)
+        file_handle.write(song_string)
+
+
+def read(file_handle):
+    ''' Reads a file into the Song object '''
+    reader = Reader()
+    return reader.read(file_handle)
+
+
+def write(song_object, file_handle):
+    ''' Writes a file from the Song object '''
+    writer = Writer()
+    writer.write(song_object, file_handle)
+
 
 if __name__ == "__main__":
-    import doctest
-    #~ to_chopro(test_text_2)
-    doctest.testmod(verbose=True)
-    doctest.testfile("regex_doctests.py")
+    print("Unable to run functions from this folder")
