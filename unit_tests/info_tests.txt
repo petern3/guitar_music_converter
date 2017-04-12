@@ -1,0 +1,31 @@
+>>> from song_primitives import SongInfo
+
+>>> SongInfo("capo 1")
+SongInfo('capo', 1)
+>>> SongInfo("Capo: 1")
+SongInfo('capo', 1)
+>>> SongInfo("caPo. 1")
+SongInfo('capo', 1)
+>>> SongInfo("capo:: 22")
+SongInfo('capo', 22)
+>>> SongInfo("capo - 22")
+SongInfo('capo', 22)
+>>> SongInfo("Author: Joeseph")
+SongInfo('author', 'Joeseph')
+>>> SongInfo("Author-Joe-sePh")
+SongInfo('author', 'Joe-sePh')
+
+>>> str(SongInfo("capo 1"))
+'Capo: 1'
+>>> str(SongInfo("Capo: 1"))
+'Capo: 1'
+>>> str(SongInfo("caPo. 1"))
+'Capo: 1'
+>>> str(SongInfo("capo:: 22"))
+'Capo: 22'
+>>> str(SongInfo("capo - 22"))
+'Capo: 22'
+>>> str(SongInfo("Author: Joeseph"))
+'Author: Joeseph'
+>>> str(SongInfo("Author-Joe-sePh"))
+'Author: Joe-sePh'

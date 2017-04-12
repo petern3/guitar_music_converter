@@ -1,0 +1,35 @@
+>>> from song_primitives import Label
+
+>>> Label("intro")
+Label('intro', False, None, None)
+>>> Label("prechorus")
+Label('chorus', True, None, None)
+>>> Label("pre-vERse 2")
+Label('verse', True, 2, None)
+>>> Label("pre bridge")
+Label('bridge', True, None, None)
+>>> Label("repeat x3")
+Label('repeat', False, 'x3', None)
+>>> Label("Chorus/Bridge")
+Label('chorus', False, None, Label('bridge', False, None, None))
+>>> Label("Chorus 1/ Bridge")
+Label('chorus', False, 1, Label('bridge', False, None, None))
+>>> Label("choruS 2 /Bridge 1")
+Label('chorus', False, 2, Label('bridge', False, 1, None))
+
+>>> str(Label("intro"))
+'INTRO'
+>>> str(Label("prechorus"))
+'PRE-CHORUS'
+>>> str(Label("pre-vERse 2"))
+'PRE-VERSE 2'
+>>> str(Label("pre bridge"))
+'PRE-BRIDGE'
+>>> str(Label("repeat x3"))
+'REPEAT x3'
+>>> str(Label("Chorus/Bridge"))
+'CHORUS / BRIDGE'
+>>> str(Label("Chorus 1/ Bridge"))
+'CHORUS 1 / BRIDGE'
+>>> str(Label("choruS 2 /Bridge 1"))
+'CHORUS 2 / BRIDGE 1'

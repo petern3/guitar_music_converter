@@ -1,0 +1,46 @@
+{
+    "label_types": [
+        "intro",
+        "verse",
+        "chorus",
+        "bridge",
+        "solo",
+        "tab",
+        "tag",
+        "ending",
+        "outro",
+        "repeat"
+    ],
+    "label_template": "(?P<pre>pre)?[ \\-]?(?P<label_type>{0}) *(?P<value>x?[0-9]*)",
+    "song_info_types": [
+        "title",
+        "subtitle",
+        "author",
+        "album",
+        "copyright",
+        "ccli"
+    ],
+    "section_info_types": [
+        "capo",
+        "key",
+        "time",
+        "tempo"
+    ],
+    "info_template": "(?P<info_type>{0})\\W+(?P<value>[0-9]+|.+)",
+    "chord_mod_types": [
+        "m",
+        "sus",
+        "add",
+        "maj",
+        "dim",
+        "aug"
+    ],
+    "chord_template": "([\\[\\<\\(]?(?P<root>[A-G][#b]?)(?P<mod>({0}|[0-9])*)?(\\/(?P<bass>[A-G][#b]?))?[\\]\\>\\)]?)",
+    "instruction_types": [
+        "ring",
+        "mute",
+        "rake",
+        "pm"
+    ],
+    "instruction_template": "([\\[\\<\\(]?(?P<instruction_type>{0})[\\]\\>\\)]?)"
+}

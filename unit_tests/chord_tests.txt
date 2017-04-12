@@ -1,0 +1,27 @@
+>>> from song_primitives import Chord
+
+>>> Chord("A")
+Chord('A', None, None)
+>>> Chord("A#")
+Chord('A#', None, None)
+>>> Chord("Eb")
+Chord('Eb', None, None)
+>>> Chord("A2")
+Chord('A', '2', None)
+>>> Chord("Asus4")
+Chord('A', 'sus4', None)
+>>> Chord("D/F#")
+Chord('D', None, 'F#')
+
+>>> str(Chord("A"))
+'A'
+>>> str(Chord("A#"))
+'A#'
+>>> str(Chord("Eb"))
+'Eb'
+>>> str(Chord("A2"))
+'A2'
+>>> str(Chord("Asus4"))
+'Asus4'
+>>> str(Chord("D/F#"))
+'D/F#'
