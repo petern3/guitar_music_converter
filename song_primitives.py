@@ -214,13 +214,14 @@ class SongInfo(RegexFinder):
         song_config = json.load(song_config_file)
         song_config_file.close()
 
-        self.find_regex_parts(info, song_config['info_template'],
-            song_config['song_info_types'] +
-            song_config['section_info_types'])
-
         # Ovewrite parameters if given
         if value is not None:
-            self.value = value
+            self['info_type'] = info
+            self['value'] = value
+        else:
+            self.find_regex_parts(info, song_config['info_template'],
+                song_config['song_info_types'] +
+                song_config['section_info_types'])
 
     def __repr__(self):
         ''' Representation of the object '''
@@ -241,6 +242,20 @@ class SongInfo(RegexFinder):
                 self['value'] = None
             elif self['value'].isnumeric():
                 self['value'] = int(self['value'])
+
+
+def create_inline(text):
+    try:
+        inline = Chord(text)
+        return inline
+    except TypeError:
+        pass
+    try:
+        inline = Instruction(text)
+        return inline
+    except TypeError:
+        pass
+    raise TypeError("\"{}\" is not a valid chord or instruction".format(text))
 
 
 if __name__ == "__main__":

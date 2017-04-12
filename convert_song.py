@@ -7,9 +7,7 @@ import re
 
 
 import source_parsers
-# import source_parsers.plaintext_file_parser
-
-# [print(t) for t in source_parsers.__dict__.items()]
+import format_parsers
 
 FILENAME_REGEX = re.compile("^([A-Z]:)?(([\\\/])?[\w|\.-]+)+$")
 URL_REGEX = re.compile("^(http|https):\/\/.+$")  # ftp, smtp, tftp, sftp, nntp
@@ -23,8 +21,9 @@ URL_REGEX = re.compile("^(http|https):\/\/.+$")  # ftp, smtp, tftp, sftp, nntp
 
 
 if __name__ == "__main__":
-    filehandle = open("song.txt")
-    filehandle2 = open("song2.txt", "w")
-    song = source_parsers.plaintext_file_parser.read(filehandle)
-    source_parsers.plaintext_file_parser.write(song, filehandle2)
+    filehandle = open("example_formats/song_original.txt")
+    filehandle2 = open("example_formats/song_plain3.txt", "w")
+    song = source_parsers.unicode_file_parser.read(filehandle, format_parsers.plaintext_parser.Decoder())
+    source_parsers.unicode_file_parser.write(song, filehandle2, format_parsers.plaintext_parser.Encoder())
     filehandle.close()
+    filehandle2.close()

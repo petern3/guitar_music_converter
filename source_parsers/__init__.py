@@ -1,1 +1,1 @@
-from . import plaintext_file_parser
+from . import unicode_file_parser

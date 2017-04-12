@@ -5,7 +5,7 @@
 
 import json
 import re
-from song_primitives import SongInfo, Label, Chord, Instruction
+from song_primitives import SongInfo, Label, Chord, Instruction, create_inline
 from song_object import Song
 
 
@@ -127,15 +127,15 @@ class Decoder(object):
                 return (line_type, group_dict[line_type])
         return ('lyric', text)
 
-    def find_inline_type(self, text):
-        ''' Decides whether text is a chord or instruction  '''
-        if self.inline_regex_dict['chord'].fullmatch(text) is not None:
-            return "chord"
-        if self.inline_regex_dict['instruction'].fullmatch(text) is not None:
-            return "instruction"
-        else:
-            raise TypeError(
-                "\"{}\" is not a valid chord or instruction".format(text))
+    # def find_inline_type(self, text):
+    #     ''' Decides whether text is a chord or instruction  '''
+    #     if self.inline_regex_dict['chord'].fullmatch(text) is not None:
+    #         return "chord"
+    #     if self.inline_regex_dict['instruction'].fullmatch(text) is not None:
+    #         return "instruction"
+    #     else:
+    #         raise TypeError(
+    #             "\"{}\" is not a valid chord or instruction".format(text))
 
     def decode(self, string_to_parse):
         ''' Converter from plaintext to the Song object
@@ -178,14 +178,10 @@ class Decoder(object):
             elif curr_line_type == 'chordline':
                 new_song.add_line()
                 chord_spacings = [-1]  # -1 so the spacing calc works
-                for inline in line_text.split():
-                    spacing = line_text.find(inline, chord_spacings[-1]+1)
-                    if self.find_inline_type(inline) == 'chord':
-                        new_song.add_inline(Chord(inline), spacing)
-                    elif self.find_inline_type(inline) == 'instruction':
-                        new_song.add_inline(Instruction(inline), spacing)
-                    else:
-                        raise TypeError("\"{}\" is not a valid chord or instruction".format(inline))
+                for inline_text in line_text.split():
+                    spacing = line_text.find(inline_text, chord_spacings[-1]+1)
+                    inline = create_inline(inline_text)
+                    new_song.add_inline(inline, spacing)
                     chord_spacings.append(spacing)
 
             elif curr_line_type == 'lyric':
