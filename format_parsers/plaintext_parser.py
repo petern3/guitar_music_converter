@@ -80,14 +80,17 @@ class Decoder(object):
 
     def gen_info_regex(self, song_config):
         ''' Generates the info line regular expression '''
-        all_info_types = song_config['song_info_types'] + \
+        single_info_types = song_config['song_single_info_types'] + \
             song_config['section_info_types']
+        multi_info_types = song_config['song_multi_info_types']
 
         info_template = "\s*(?P<info>{0})".format(song_config['info_template'])
 
         config_str = ""
-        for info_type in all_info_types:
+        for info_type in single_info_types:
             config_str = config_str + info_type + "|"
+        for info_type in multi_info_types:
+            config_str = config_str + info_type + "[s]?|"
         info_pattern = info_template.format(config_str[:-1])
         return re.compile(info_pattern, re.IGNORECASE)
 
@@ -155,21 +158,12 @@ class Decoder(object):
                 self.find_line_type(line_text.strip())
 
             if curr_line_type == 'info':
-                line_info = SongInfo(line_match)
-                if line_info['info_type'] in new_song:
-                    new_song[line_info['info_type']] = line_info
-                elif line_info['info_type'] in new_song.curr_section:
-                    if new_song.curr_section[line_info['info_type']] is None:
-                        new_song.add_section()
-                    new_song.curr_section[line_info['info_type']] = line_info
-                else:
-                    raise TypeError("\"{}\" is a valid info type, but does not fit in the song or section".format(line_info.info))
+                new_song.set_info(SongInfo(line_match))
 
             elif curr_line_type == 'label':
-                if prev_line_type == 'blank':
-                    new_song.set_label(Label(line_match))
-                else:
-                    new_song.add_element(Label(line_match))
+                if prev_line_type != 'blank':
+                    new_song.add_element()
+                new_song.set_label(Label(line_match))
 
             elif curr_line_type == 'blank':
                 if prev_line_type != 'blank':
@@ -212,9 +206,14 @@ class Encoder(object):
 
         song_string = ""
 
-        for song_info_type in song_config['song_info_types']:
+        for song_info_type in song_config['song_single_info_types']:
             if song_object[song_info_type] is not None:
                 song_string += str(song_object[song_info_type]) + "\n"
+
+        for song_info_type in song_config['song_multi_info_types']:
+            if song_object[song_info_type] != []:
+                for song_info in song_object[song_info_type]:
+                    song_string += str(song_info) + "\n"
 
         for section in song_object['section_list']:
             for section_info_type in song_config['section_info_types']:

@@ -12,19 +12,26 @@
         "repeat"
     ],
     "label_template": "(?P<pre>pre)?[ \\-]?(?P<label_type>{0}) *(?P<value>x?[0-9]*)(\\:)?",
-    "song_info_types": [
+    "song_single_info_types": [
         "title",
         "subtitle",
-        "author",
-        "album",
         "copyright",
-        "ccli"
+		"year",
+        "ccli",
+		"duration"
+    ],
+	"song_multi_info_types": [
+        "composer",
+        "author",
+        "arranger",
+        "artist",
+        "album"
     ],
     "section_info_types": [
-        "capo",
         "key",
         "time",
-        "tempo"
+        "tempo",
+		"capo"
     ],
     "info_template": "(?P<info_type>{0})\\W+(?P<value>[0-9]+|.+)",
     "chord_mod_types": [

@@ -1,0 +1,110 @@
+{
+    "_comment": "This is taken from the version 5.0 draft definition of ChordPro: http://www.chordpro.org/chordpro/v50.html",
+    "preamble_directives": [
+        "new_song",
+        "ns"
+    ],
+    "metadata_directives": [
+        "single": [
+            "title",
+            "copyright",
+            "year",
+            "duration"
+        ],
+        "multi": [
+            "meta",
+            "subtitle",
+            "composer",
+            "lyricist",
+            "arranger",
+            "artist",
+            "album"
+        ],
+        "redefinable": [
+            "key",
+            "time",
+            "tempo",
+            "capo"
+        ]
+    ],
+    "formatting_directives" [
+        "comment",
+        "c",
+        "highlight",
+        "comment_italic",
+        "ci",
+        "comment_box",
+        "cb",
+        "start_of_verse",
+        "sov",
+        "end_of_verse",
+        "eov",
+        "start_of_chorus",
+        "soc",
+        "end_of_chorus",
+        "eoc",
+        "start_of_bridge",
+        "sob",
+        "end_of_bridge",
+        "eob"
+        "start_of_tab",
+        "sot",
+        "end_of_tab",
+        "eot",
+        "start_of_grid",
+        "sog",
+        "end_of_grid",
+        "eog",
+        "chorus",
+        "image"
+    ],
+    "chord_definitions": [
+        "define",
+        "chord"
+    ],
+    "font_definitions": [
+        "textfont",
+        "tf",
+        "textsize",
+        "ts",
+        "textcolour",
+        "chordfont",
+        "cf",
+        "chordsize",
+        "cs",
+        "chordcolour",
+        "titlefont",
+        "titlesize",
+        "titlecolour",
+        "footerfont",
+        "footersize",
+        "footercolour",
+        "tocfont",
+        "tocsize",
+        "toccolour",
+        "tabfont",
+        "tabsize",
+        "tabcolour",
+        "gridfont",
+        "gridsize",
+        "gridcolour"
+    ],
+    "output_directives": [
+        "no_grid",
+        "ng",
+        "grid",
+        "g",
+        "titles",
+        "new_page",
+        "np",
+        "new_physical_page",
+        "npp",
+        "columns",
+        "col",
+        "column_break",
+        "colb",
+        "pagesize",
+        "papersize"
+    ],
+    "custom_prefix": "x_"
+}

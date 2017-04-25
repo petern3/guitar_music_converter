@@ -1,21 +1,22 @@
 >>> from song_primitives import Label
 
->>> Label("intro")
-Label('intro', False, None, None)
->>> Label("prechorus")
-Label('chorus', True, None, None)
->>> Label("pre-vERse 2")
-Label('verse', True, 2, None)
->>> Label("pre bridge")
-Label('bridge', True, None, None)
->>> Label("repeat x3")
-Label('repeat', False, 'x3', None)
->>> Label("Chorus/Bridge")
-Label('chorus', False, None, Label('bridge', False, None, None))
->>> Label("Chorus 1/ Bridge")
-Label('chorus', False, 1, Label('bridge', False, None, None))
->>> Label("choruS 2 /Bridge 1")
-Label('chorus', False, 2, Label('bridge', False, 1, None))
+>>> Label("intro") == eval("Label({'pre': False, 'value': None, 'alt': None, 'label_type': 'intro'})")
+True
+>>> Label("prechorus") == eval("Label({'pre': True, 'value': None, 'alt': None, 'label_type': 'chorus'})")
+True
+>>> Label("pre-vERse 2") == eval("Label({'pre': True, 'value': 2, 'alt': None, 'label_type': 'verse'})")
+True
+>>> Label("pre bridge") == eval("Label({'pre': True, 'value': None, 'alt': None, 'label_type': 'bridge'})")
+True
+>>> Label("repeat x3") == eval("Label({'pre': False, 'value': 'x3', 'alt': None, 'label_type': 'repeat'})")
+True
+>>> Label("Chorus/Bridge") == eval("Label({'pre': False, 'value': None, 'alt': Label({'pre': False, 'value': None, 'alt': None, 'label_type': 'bridge'}), 'label_type': 'chorus'})")
+True
+>>> Label("Chorus 1/ Bridge") == eval("Label({'pre': False, 'value': 1, 'alt': Label({'pre': False, 'value': None, 'alt': None, 'label_type': 'bridge'}), 'label_type': 'chorus'})")
+True
+>>> Label("choruS 2 /Bridge 1") == eval("Label({'pre': False, 'value': 2, 'alt': Label({'pre': False, 'value': 1, 'alt': None, 'label_type': 'bridge'}), 'label_type': 'chorus'})")
+True
+
 
 >>> str(Label("intro"))
 'INTRO'

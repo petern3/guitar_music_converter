@@ -1,19 +1,19 @@
 >>> from song_primitives import SongInfo
 
->>> SongInfo("capo 1")
-SongInfo('capo', 1)
->>> SongInfo("Capo: 1")
-SongInfo('capo', 1)
->>> SongInfo("caPo. 1")
-SongInfo('capo', 1)
->>> SongInfo("capo:: 22")
-SongInfo('capo', 22)
->>> SongInfo("capo - 22")
-SongInfo('capo', 22)
->>> SongInfo("Author: Joeseph")
-SongInfo('author', 'Joeseph')
->>> SongInfo("Author-Joe-sePh")
-SongInfo('author', 'Joe-sePh')
+>>> SongInfo("capo 1") == eval("SongInfo({'value': 1, 'info_type': 'capo'})")
+True
+>>> SongInfo("Capo: 1") == eval("SongInfo({'value': 1, 'info_type': 'capo'})")
+True
+>>> SongInfo("caPo. 1") == eval("SongInfo({'value': 1, 'info_type': 'capo'})")
+True
+>>> SongInfo("capo:: 22") == eval("SongInfo({'value': 22, 'info_type': 'capo'})")
+True
+>>> SongInfo("capo - 22") == eval("SongInfo({'value': 22, 'info_type': 'capo'})")
+True
+>>> SongInfo("Author: Joeseph") == eval("SongInfo({'value': 'Joeseph', 'info_type': 'author'})")
+True
+>>> SongInfo("Author-Joe-sePh") == eval("SongInfo({'value': 'Joe-sePh', 'info_type': 'author'})")
+True
 
 >>> str(SongInfo("capo 1"))
 'Capo: 1'

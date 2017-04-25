@@ -1,17 +1,17 @@
 >>> from song_primitives import Instruction
 
 >>> Instruction("Ring")
-Instruction('ring')
+Instruction({'instruction_type': 'ring'})
 >>> Instruction("(Ring)")
-Instruction('ring')
+Instruction({'instruction_type': 'ring'})
 >>> Instruction("Mute")
-Instruction('mute')
+Instruction({'instruction_type': 'mute'})
 >>> Instruction("riNg")
-Instruction('ring')
+Instruction({'instruction_type': 'ring'})
 
 >>> str(Instruction("Ring"))
 'Ring'
->>> str(Instruction("Ring"))
+>>> str(Instruction("(Ring)"))
 'Ring'
 >>> str(Instruction("Mute"))
 'Mute'

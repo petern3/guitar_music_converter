@@ -1,17 +1,17 @@
 >>> from song_primitives import Chord
 
->>> Chord("A")
-Chord('A', None, None)
->>> Chord("A#")
-Chord('A#', None, None)
->>> Chord("Eb")
-Chord('Eb', None, None)
->>> Chord("A2")
-Chord('A', '2', None)
->>> Chord("Asus4")
-Chord('A', 'sus4', None)
->>> Chord("D/F#")
-Chord('D', None, 'F#')
+>>> Chord("A") == eval("Chord({'mod': None, 'bass': None, 'root': 'A'})")
+True
+>>> Chord("A#") == eval("Chord({'mod': None, 'bass': None, 'root': 'A#'})")
+True
+>>> Chord("Eb") == eval("Chord({'mod': None, 'bass': None, 'root': 'Eb'})")
+True
+>>> Chord("A2") == eval("Chord({'mod': '2', 'bass': None, 'root': 'A'})")
+True
+>>> Chord("Asus4") == eval("Chord({'mod': 'sus4', 'bass': None, 'root': 'A'})")
+True
+>>> Chord("D/F#") == eval("Chord({'mod': None, 'bass': 'F#', 'root': 'D'})")
+True
 
 >>> str(Chord("A"))
 'A'

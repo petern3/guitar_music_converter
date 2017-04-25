@@ -10,8 +10,12 @@ class RegexFinder(dict):
     ''' A generic class for matching regular expressions, and extracting them
     into a key '''
 
-    def __init__(self, *args):
-        super().__init__(*args)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def __repr__(self):
+        ''' Representation of the object '''
+        return "{}({})".format(self.__class__.__name__, repr(dict(self)))
 
     def find_regex_parts(self, text, regex_template, regex_config=None,
             ignore_case=True):
@@ -59,19 +63,19 @@ class RegexFinder(dict):
 class Instruction(RegexFinder):
     ''' This is any instruction you may apply to a chord (such as 'ring') '''
 
-    def __init__(self, instruction=""):
-        super().__init__()
+    def __init__(self, instruction):
+        if isinstance(instruction, dict):
+            for key in instruction.keys():
+                assert key in ('instruction_type')
+            super().__init__(**instruction)
+        else:
+            song_config_file = open("song_config.json")
+            song_config = json.load(song_config_file)
+            song_config_file.close()
 
-        song_config_file = open("song_config.json")
-        song_config = json.load(song_config_file)
-        song_config_file.close()
-
-        self.find_regex_parts(instruction, song_config['instruction_template'],
-        song_config['instruction_types'])
-
-    def __repr__(self):
-        ''' Representation of the object '''
-        return "Instruction({})".format(repr(self['instruction_type']))
+            self.find_regex_parts(instruction,
+                song_config['instruction_template'],
+                song_config['instruction_types'])
 
     def __str__(self):
         ''' String representation of the object '''
@@ -81,26 +85,18 @@ class Instruction(RegexFinder):
 
 class Chord(RegexFinder):
     ''' This is the class for chord objects '''
-    def __init__(self, chord, mod=None, bass=None):
-        super().__init__()
+    def __init__(self, chord):
+        if isinstance(chord, dict):
+            for key in chord.keys():
+                assert key in ('root', 'mod', 'bass')
+            super().__init__(**chord)
+        else:
+            song_config_file = open("song_config.json")
+            song_config = json.load(song_config_file)
+            song_config_file.close()
 
-        song_config_file = open("song_config.json")
-        song_config = json.load(song_config_file)
-        song_config_file.close()
-
-        self.find_regex_parts(chord, song_config['chord_template'],
-            song_config['chord_mod_types'], ignore_case=False)
-
-        # Ovewrite parameters if given
-        if mod is not None:
-            self['mod'] = mod
-        if bass is not None:
-            self['bass'] = bass
-
-    def __repr__(self):
-        ''' Representation of the object '''
-        return "Chord({}, {}, {})".format(repr(self['root']),
-            repr(self['mod']), repr(self['bass']))
+            self.find_regex_parts(chord, song_config['chord_template'],
+                song_config['chord_mod_types'], ignore_case=False)
 
     def __str__(self):
         ''' String representation of the object '''
@@ -138,42 +134,30 @@ class Chord(RegexFinder):
                     'F#',
                     'G',
                     'G#'
-                   ]
+                    ]
         # TODO: Implement
 
 
 class Label(RegexFinder):
     ''' Contains the data for a label '''
 
-    def __init__(self, label="", pre=None, value=None, alt=None):
-        super().__init__()
+    def __init__(self, label=""):
+        if isinstance(label, dict):
+            super().__init__(**label)
+        else:
+            song_config_file = open("song_config.json")
+            song_config = json.load(song_config_file)
+            song_config_file.close()
 
-        song_config_file = open("song_config.json")
-        song_config = json.load(song_config_file)
-        song_config_file.close()
+            temp_1 = song_config['label_template']
+            temp_2 = song_config['label_template'].replace(
+                "?P<pre>", "").replace(
+                "?P<label_type>", "").replace(
+                "?P<value>", "")
+            regex_template = "{0}( ?/ ?(?P<alt>{1}))?".format(temp_1, temp_2)
 
-        temp_1 = song_config['label_template']
-        temp_2 = song_config['label_template'].replace(
-            "?P<pre>", "").replace(
-            "?P<label_type>", "").replace(
-            "?P<value>", "")
-        regex_template = "{0}( ?/ ?(?P<alt>{1}))?".format(temp_1, temp_2)
-
-        self.find_regex_parts(label, regex_template,
-            song_config['label_types'])
-
-        # Ovewrite parameters if given
-        if pre is not None:
-            self['pre'] = pre
-        if value is not None:
-            self['value'] = value
-        if alt is not None:
-            self['alt'] = alt
-
-    def __repr__(self):
-        ''' Representation of the object '''
-        return "Label({}, {}, {}, {})".format(repr(self['label_type']),
-            repr(self['pre']), repr(self['value']), repr(self['alt']))
+            self.find_regex_parts(label, regex_template,
+                song_config['label_types'])
 
     def __str__(self):
         ''' String representation of the object '''
@@ -207,26 +191,18 @@ class Label(RegexFinder):
 class SongInfo(RegexFinder):
     ''' Contains meta-data for the song '''
 
-    def __init__(self, info="", value=None):
-        super().__init__()
-
-        song_config_file = open("song_config.json")
-        song_config = json.load(song_config_file)
-        song_config_file.close()
-
-        # Ovewrite parameters if given
-        if value is not None:
-            self['info_type'] = info
-            self['value'] = value
+    def __init__(self, song_info=""):
+        if isinstance(song_info, dict):
+            super().__init__(**song_info)
         else:
-            self.find_regex_parts(info, song_config['info_template'],
-                song_config['song_info_types'] +
-                song_config['section_info_types'])
+            song_config_file = open("song_config.json")
+            song_config = json.load(song_config_file)
+            song_config_file.close()
 
-    def __repr__(self):
-        ''' Representation of the object '''
-        return "SongInfo({}, {})".format(repr(self['info_type']),
-            repr(self['value']))
+            self.find_regex_parts(song_info, song_config['info_template'],
+                song_config['song_single_info_types'] +
+                song_config['song_multi_info_types'] +
+                song_config['section_info_types'])
 
     def __str__(self):
         ''' String representation of the object '''
@@ -248,12 +224,12 @@ def create_inline(text):
     try:
         inline = Chord(text)
         return inline
-    except TypeError:
+    except (TypeError, AssertionError) as e:
         pass
     try:
         inline = Instruction(text)
         return inline
-    except TypeError:
+    except (TypeError, AssertionError) as e:
         pass
     raise TypeError("\"{}\" is not a valid chord or instruction".format(text))
 
