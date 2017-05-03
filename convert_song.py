@@ -19,6 +19,7 @@ def find_source_type(filename):
         return 'powerpoint_file'
     return 'unicode_file'
 
+
 def find_format_type(filename):
     ''' Attempt to determine the format type based on the file extension '''
     return 'plaintext'

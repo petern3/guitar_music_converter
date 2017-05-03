@@ -4,21 +4,46 @@
 
 >>> original_in_file = open("example_formats/lifeline_original.txt")
 >>> original_song = source_parsers.unicode_file_parser.read(original_in_file, format_parsers.plaintext_parser.Decoder())
+>>> original_in_file.close()
 
+# Plaintext Tests
 >>> plaintext_in_file = open("example_formats/lifeline.txt")
 >>> plaintext_song = source_parsers.unicode_file_parser.read(plaintext_in_file, format_parsers.plaintext_parser.Decoder())
+>>> plaintext_in_file.close()
 
->>> json_in_file = open("example_formats/lifeline.json")
->>> json_song = source_parsers.unicode_file_parser.read(json_in_file, format_parsers.json_parser.Decoder())
-
-
->>> plaintext_song == original_song
-True
->>> json_song == original_song
+>>> read_success = (plaintext_song == original_song)
+>>> read_success
 True
 
 >>> plaintext_out_file = open("tmp/lifeline.txt", 'w')
 >>> source_parsers.unicode_file_parser.write(original_song, plaintext_out_file, format_parsers.plaintext_parser.Encoder())
+>>> plaintext_out_file.close()
+
+>>> plaintext_in_file = open("tmp/lifeline.txt")
+>>> plaintext_song = source_parsers.unicode_file_parser.read(plaintext_in_file, format_parsers.plaintext_parser.Decoder())
+>>> plaintext_in_file.close()
+
+>>> write_success = (plaintext_song == original_song)
+>>> write_success
+True
+
+# JSON Tests
+>>> json_in_file = open("example_formats/lifeline.json")
+>>> json_song = source_parsers.unicode_file_parser.read(json_in_file, format_parsers.json_parser.Decoder())
+>>> json_in_file.close()
+
+>>> read_success = (json_song == original_song)
+>>> read_success
+True
 
 >>> json_out_file = open("tmp/lifeline.json", 'w')
 >>> source_parsers.unicode_file_parser.write(original_song, json_out_file, format_parsers.json_parser.Encoder())
+>>> json_out_file.close()
+
+>>> json_in_file = open("tmp/lifeline.json")
+>>> json_song = source_parsers.unicode_file_parser.read(json_in_file, format_parsers.json_parser.Decoder())
+>>> json_in_file.close()
+
+>>> write_success = (json_song == original_song)
+>>> write_success
+True
