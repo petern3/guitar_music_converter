@@ -1,18 +1,14 @@
-
-Lifeline
-By Brooke Fraser
-
-(c) 2003 Sony/ATV Music Publishing
-
-
-Capo 1
+Title: Lifeline
+Copyright: 2003 Sony/ATV Music Publishing
+Author: Brooke Fraser
 Key: D# (D)
+Capo: 1
 
-intro:
+INTRO
 Em C D
 Em C D
 
-Verse 1
+VERSE 1
 Em           C
  I have this sinking feeling
 D
@@ -26,7 +22,7 @@ D
 Em         C              D
  Doing the thing I said I hated
 
-Pre-Chorus
+PRE-CHORUS
 Em             G               D    Am
  They’ve been swimming in the wrong waters
 Em           G           D
@@ -36,7 +32,7 @@ Em        G                D              Am
          Em               G        D
 ‘Cause I know that you'll lift me out
 
-Chorus
+CHORUS
 Am        Em
 Have your way here
 G        D
@@ -47,13 +43,13 @@ Am        Em   G
 Take this ocean of
  D            Am  Em
 Pain that is mine
-D (ring)
+D (Ring)
   Throw me a lifeline
 
 Em C D
 Em C D
 
-Verse 2
+VERSE 2
 Em            C
  I wake up feeling convicted
 D
@@ -67,7 +63,7 @@ D
 Em          C                  D
  Dry up the seas that keep us parted
 
-Pre-Chorus
+PRE-CHORUS
  Em                    G               D    Am
   ‘Cause they’ve been swimming in the wrong waters
  Em           G           D
@@ -77,7 +73,7 @@ Pre-Chorus
           Em               G        D
  ‘Cause I know that you'll lift me out
 
-Chorus
+CHORUS
  Am        Em
  Have your way here
  G        D
@@ -88,13 +84,13 @@ Chorus
  Take this ocean of
   D            Am  Em
  Pain that is mine
- D (ring)
+ D (Ring)
    Throw me a lifeline
 
 Em C D
 Em C D
 
-Pre-Chorus
+PRE-CHORUS
  Em             G               D    Am
   They’ve been swimming in the wrong waters
  Em           G           D
@@ -109,7 +105,7 @@ Am Em G D
 Am Em D
  Know  ye-eah
 
-Chorus
+CHORUS
              Am        Em
  That You’ll have your way here
  G         D
@@ -131,5 +127,5 @@ Chorus
  Take this ocean of
   D            Am  Em
  Pain that is mine
- D (ring)
+ D (Ring)
    Throw me a lifeline
