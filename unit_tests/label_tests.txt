@@ -4,6 +4,8 @@
 True
 >>> Label("prechorus") == eval("Label({'pre': True, 'value': None, 'alt': None, 'label_type': 'chorus'})")
 True
+>>> Label("Pre-Chorus") == eval("Label({'pre': True, 'value': None, 'alt': None, 'label_type': 'chorus'})")
+True
 >>> Label("pre-vERse 2") == eval("Label({'pre': True, 'value': 2, 'alt': None, 'label_type': 'verse'})")
 True
 >>> Label("pre bridge") == eval("Label({'pre': True, 'value': None, 'alt': None, 'label_type': 'bridge'})")
@@ -21,6 +23,8 @@ True
 >>> str(Label("intro"))
 'INTRO'
 >>> str(Label("prechorus"))
+'PRE-CHORUS'
+>>> str(Label("Pre-Chorus"))
 'PRE-CHORUS'
 >>> str(Label("pre-vERse 2"))
 'PRE-VERSE 2'

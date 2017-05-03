@@ -34,10 +34,6 @@ class Decoder(object):
             'info': self.gen_info_regex(song_config),
             'tab': self.gen_tab_regex(song_config)
         }
-        self.inline_regex_dict = {
-            'chord': self.gen_chord_regex(song_config),
-            'instruction': self.gen_instruction_regex(song_config)
-        }
 
     def gen_blank_regex(self, song_config=None):
         ''' Generates the blank line regular expression '''
@@ -57,7 +53,7 @@ class Decoder(object):
         instruction_pattern = song_config['instruction_template'].format(
             config_str[:-1])
 
-        chordline_pattern = "(?P<chordline>(\s*({0}|{1}))+)".format(
+        chordline_pattern = "(?P<chordline>(\W*({0}|{1}))+\W*)".format(
             chord_pattern, instruction_pattern)
         return re.compile(chordline_pattern, re.IGNORECASE)
 
@@ -99,29 +95,6 @@ class Decoder(object):
         tab_pattern = "\s*(?P<tab>(\|{0,2}[A-Gb]?\|{0,2}[-x0-9|:]{4,}))"
         return re.compile(tab_pattern)
 
-    def gen_chord_regex(self, song_config):
-        ''' Generates the chord regular expression '''
-        chord_template = "(?P<chord>{0})".format(song_config['chord_template'])
-
-        config_str = ""
-        for mod_type in song_config['chord_mod_types']:
-            config_str = config_str + mod_type + "|"
-        chord_pattern = chord_template.format(config_str[:-1])
-
-        return re.compile(chord_pattern, re.IGNORECASE)
-
-    def gen_instruction_regex(self, song_config):
-        ''' Generates the instruction regular expression '''
-        instruction_template = \
-            "(?P<instruction>{0})".format(song_config['instruction_template'])
-
-        config_str = ""
-        for instruction_type in song_config['instruction_types']:
-            config_str = config_str + instruction_type + "|"
-        instruction_pattern = instruction_template.format(config_str[:-1])
-
-        return re.compile(instruction_pattern, re.IGNORECASE)
-
     def find_line_type(self, text):
         ''' Takes an estimate of the type of line it is  '''
         for (line_type, line_regex) in self.line_regex_dict.items():
@@ -129,16 +102,6 @@ class Decoder(object):
                 group_dict = line_regex.fullmatch(text).groupdict()
                 return (line_type, group_dict[line_type])
         return ('lyric', text)
-
-    # def find_inline_type(self, text):
-    #     ''' Decides whether text is a chord or instruction  '''
-    #     if self.inline_regex_dict['chord'].fullmatch(text) is not None:
-    #         return "chord"
-    #     if self.inline_regex_dict['instruction'].fullmatch(text) is not None:
-    #         return "instruction"
-    #     else:
-    #         raise TypeError(
-    #             "\"{}\" is not a valid chord or instruction".format(text))
 
     def decode(self, string_to_parse):
         ''' Converter from plaintext to the Song object
@@ -150,6 +113,7 @@ class Decoder(object):
         new_song = Song()
         new_song.add_section()
 
+        started_song = False
         chord_spacings = []
         prev_line_type = 'blank'
 
@@ -164,6 +128,7 @@ class Decoder(object):
                 if prev_line_type != 'blank':
                     new_song.add_element()
                 new_song.set_label(Label(line_match))
+                started_song = True
 
             elif curr_line_type == 'blank':
                 if prev_line_type != 'blank':
@@ -172,21 +137,51 @@ class Decoder(object):
             elif curr_line_type == 'chordline':
                 new_song.add_line()
                 chord_spacings = [-1]  # -1 so the spacing calc works
+                line_text = line_text.replace(
+                    '|', '').replace(
+                    '/', ' ').replace(
+                    '\'', '')
                 for inline_text in line_text.split():
                     spacing = line_text.find(inline_text, chord_spacings[-1]+1)
                     inline = create_inline(inline_text)
                     new_song.add_inline(inline, spacing)
                     chord_spacings.append(spacing)
 
+                started_song = True
+
             elif curr_line_type == 'lyric':
-                if prev_line_type == 'chordline':
-                    new_song.set_lyric(line_text)
+                if not started_song:  # There is likely meta-data here
+                    meta_data = {'info_type': None, 'value': None}
+                    if new_song['author'] == []:
+                        if line_text.startswith('by') or \
+                                new_song['title'] is not None:
+                            # Assume second line is author
+                            meta_data['info_type'] = 'author'
+                            meta_data['value'] = line_text[2:].strip()
+                            new_song.set_info(SongInfo(meta_data))
+                            continue
+                    if new_song['title'] is None:
+                        # Assume first line is title
+                        meta_data['info_type'] = 'title'
+                        meta_data['value'] = line_text.strip()
+                        new_song.set_info(SongInfo(meta_data))
+                        continue
+                    if new_song['copyright'] is None:
+                        if line_text.startswith('(c)'):
+                            meta_data['info_type'] = 'copyright'
+                            meta_data['value'] = line_text[3:].strip()
+                            new_song.set_info(SongInfo(meta_data))
+                            continue
                 else:
-                    new_song.add_line()  # lyric=line_text
-                    new_song.set_lyric(line_text)
+                    if prev_line_type == 'chordline':
+                        new_song.set_lyric(line_text)
+                    else:
+                        new_song.add_line()  # lyric=line_text
+                        new_song.set_lyric(line_text)
 
             elif curr_line_type == 'tab':
                 new_song.add_line()
+                started_song = True
 
             if curr_line_type != 'chordline':
                 chord_spacings = []
@@ -234,13 +229,15 @@ class Encoder(object):
                             padding = spacing - len(chord_line)
                             if padding < 0:
                                 raise ValueError("{} is not a large enough spacing (minimum {})".format(spacing, len(chord_line)))
-                            chord_line += " "*padding + str(chord)
+                            if isinstance(chord, Instruction):
+                                chord_line += " "*padding+'('+str(chord)+')'
+                            else:
+                                chord_line += " "*padding + str(chord)
                         chord_line += "\n"
                     if line['lyric'] is not None:
                         lyric_line = line['lyric'] + "\n"
                     song_string += chord_line + lyric_line
 
-        song_string += "\n"
         return song_string
 
 

@@ -173,7 +173,10 @@ class Label(RegexFinder):
 
     def format_values(self):
         ''' Converts values to the desired format '''
-        self['pre'] = (self['pre'] == "pre")
+        if isinstance(self['pre'], str):
+            self['pre'] = (self['pre'].lower() == "pre")
+        else:
+            self['pre'] = False
 
         self['label_type'] = self['label_type'].lower()
 
