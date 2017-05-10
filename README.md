@@ -52,24 +52,24 @@ _**May be implemented_
 
 When the source_parser has created a string of the relevant section, the
 format_parsers will turn it into the Song format. Formats include:
-- Plaintext
+#### Plaintext
 
 
     VERSE
     Fm            Db
       I have this sinking feeling
 
-- Chordpro*
+#### Chordpro*
 
 
     {c:VERSE}          
     [Fm]  I have this [Db]sinking feeling
 
-- json (because this is the native format of the Song object, see below for
-    example)
+#### json
+(because this is the native format of the Song object, see below for example)
 
-- Latex**
-- HTML** (if not converted by the source_parser)
+#### Latex**
+#### HTML** (if not converted by the source_parser)
 
 _*Will be implemented_
 
@@ -120,7 +120,12 @@ of information it holds.
 
 ## Known Bugs
 
-- The programs attempts to convert unicode characters to ascii, but does
-not always work. Suspected to be related to the python build, see the
+- When non-ascii characters are on a line, the chords are placed too early in
+the line (in the chordpro parser). Suspected to be related to
+[PEP 261](https://www.python.org/dev/peps/pep-0261/), specifically surrigate
+pairs.
+
+In an attempt to fix the above, it attempts to convert unicode characters to
+ascii, but does not always work. May be related to the python build, see the
 [unidecode page](https://pypi.python.org/pypi/Unidecode), under 'Requirements'
-If fixed, be sure to check the chordpro parser line chord spacings.
+If fixed, be sure to check the chordpro parser chord spacings.

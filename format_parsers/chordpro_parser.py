@@ -263,7 +263,6 @@ class Encoder(object):
                 elif start_of_x_tag == 'bridge':
                     song_string += "{end_of_bridge}\n"
 
-
         return song_string
 
 
