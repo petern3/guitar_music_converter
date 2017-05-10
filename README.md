@@ -125,7 +125,7 @@ the line (in the chordpro parser). Suspected to be related to
 [PEP 261](https://www.python.org/dev/peps/pep-0261/), specifically surrigate
 pairs.
 
-In an attempt to fix the above, it attempts to convert unicode characters to
+- In an attempt to fix the above, it attempts to convert unicode characters to
 ascii, but does not always work. May be related to the python build, see the
-[unidecode page](https://pypi.python.org/pypi/Unidecode), under 'Requirements'
+[unidecode page](https://pypi.python.org/pypi/Unidecode), under 'Requirements'.
 If fixed, be sure to check the chordpro parser chord spacings.

@@ -203,21 +203,21 @@ class Encoder(object):
 
         for song_info_type in song_config['song_single_info_types']:
             if song_object[song_info_type] is not None:
-                song_string += "{{{}: {}}}\n".format(
+                song_string += "{{{}:{}}}\n".format(
                     song_object[song_info_type]['info_type'],
                     song_object[song_info_type]['value'])
 
         for song_info_type in song_config['song_multi_info_types']:
             if song_object[song_info_type] != []:
                 for song_info in song_object[song_info_type]:
-                    song_string += "{{{}: {}}}\n".format(
+                    song_string += "{{{}:{}}}\n".format(
                         song_info['info_type'],
                         song_info['value'])
 
         for section in song_object['section_list']:
             for section_info_type in song_config['section_info_types']:
                 if section[section_info_type] is not None:
-                    song_string += "{{{}: {}}}\n".format(
+                    song_string += "{{{}:{}}}\n".format(
                         section[section_info_type]['info_type'],
                         section[section_info_type]['value'])
 
@@ -227,7 +227,7 @@ class Encoder(object):
                 song_string += "\n"
                 if element['label'] is not None:
                     curr_label = element['label']
-                    song_string += "{{c: {}}}\n".format(element['label'])
+                    song_string += "{{c:{}}}\n".format(element['label'])
 
                     if not curr_label['pre']:
                         if curr_label['label_type'] == "verse":
