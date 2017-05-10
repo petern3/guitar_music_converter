@@ -6,7 +6,8 @@
 >>> original_song = source_parsers.unicode_file_parser.read(original_in_file, format_parsers.plaintext_parser.Decoder())
 >>> original_in_file.close()
 
-# Plaintext Tests
+
+### Plaintext Tests ###
 >>> plaintext_in_file = open("example_formats/lifeline.txt")
 >>> plaintext_song = source_parsers.unicode_file_parser.read(plaintext_in_file, format_parsers.plaintext_parser.Decoder())
 >>> plaintext_in_file.close()
@@ -27,7 +28,8 @@ True
 >>> write_success
 True
 
-# JSON Tests
+
+### JSON Tests ###
 >>> json_in_file = open("example_formats/lifeline.json")
 >>> json_song = source_parsers.unicode_file_parser.read(json_in_file, format_parsers.json_parser.Decoder())
 >>> json_in_file.close()
@@ -47,3 +49,25 @@ True
 >>> write_success = (json_song == original_song)
 >>> write_success
 True
+
+
+### Chordpro Tests ###
+# >>> chordpro_in_file = open("example_formats/lifeline.chordpro")
+# >>> chordpro_song = source_parsers.unicode_file_parser.read(chordpro_in_file, format_parsers.chordpro_parser.Decoder())
+# >>> chordpro_in_file.close()
+
+# >>> read_success = (chordpro_song == original_song)
+# >>> read_success
+# True
+
+>>> chordpro_out_file = open("tmp/lifeline.chordpro", 'w')
+>>> source_parsers.unicode_file_parser.write(original_song, chordpro_out_file, format_parsers.chordpro_parser.Encoder())
+>>> chordpro_out_file.close()
+
+# >>> chordpro_in_file = open("tmp/lifeline.chordpro")
+# >>> chordpro_song = source_parsers.unicode_file_parser.read(chordpro_in_file, format_parsers.chordpro_parser.Decoder())
+# >>> chordpro_in_file.close()
+
+# >>> write_success = (chordpro_song == original_song)
+# >>> write_success
+# True

@@ -6,7 +6,7 @@
 from song_object import Song
 import format_parsers.plaintext_parser
 
-# import unidecode
+import unidecode
 
 
 class Reader(object):
@@ -19,8 +19,8 @@ class Reader(object):
 
     def read(self, file_handle):
         ''' Reads a file into the Song object '''
-        # string_to_parse = unidecode.unidecode(file_handle.read())
-        string_to_parse = file_handle.read()
+        string_to_parse = unidecode.unidecode(file_handle.read())
+        # string_to_parse = file_handle.read()
         new_song = self.decoder.decode(string_to_parse)
         return new_song
 

@@ -117,3 +117,10 @@ of information it holds.
         "pre": false
       }
     }
+
+## Known Bugs
+
+- The programs attempts to convert unicode characters to ascii, but does
+not always work. Suspected to be related to the python build, see the
+[unidecode page](https://pypi.python.org/pypi/Unidecode), under 'Requirements'
+If fixed, be sure to check the chordpro parser line chord spacings.

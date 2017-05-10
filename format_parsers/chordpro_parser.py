@@ -10,7 +10,7 @@ from song_object import Song
 
 
 class Decoder(object):
-    ''' Converter from plaintext to the Song object '''
+    ''' Converter from chordpro to the Song object '''
 
     def __init__(self):
         self.gen_regex()
@@ -104,7 +104,7 @@ class Decoder(object):
         return ('lyric', text)
 
     def decode(self, string_to_parse):
-        ''' Converter from plaintext to the Song object
+        ''' Converter from chordpro to the Song object
 
         Various behavious of the decoder include:
             - If the input song attempts to redefine a section info variable,
@@ -191,10 +191,10 @@ class Decoder(object):
 
 
 class Encoder(object):
-    ''' Converter from the Song object to plaintext '''
+    ''' Converter from the Song object to chordpro '''
 
     def encode(self, song_object):
-        ''' Converts the song into plaintext '''
+        ''' Converts the song into chordpro '''
         song_config_file = open("song_config.json")
         song_config = json.load(song_config_file)
         song_config_file.close()
@@ -203,52 +203,78 @@ class Encoder(object):
 
         for song_info_type in song_config['song_single_info_types']:
             if song_object[song_info_type] is not None:
-                song_string += "{}\n".format(song_object[song_info_type])
+                song_string += "{{{}: {}}}\n".format(
+                    song_object[song_info_type]['info_type'],
+                    song_object[song_info_type]['value'])
 
         for song_info_type in song_config['song_multi_info_types']:
             if song_object[song_info_type] != []:
                 for song_info in song_object[song_info_type]:
-                    song_string += "{}\n".format(song_info)
+                    song_string += "{{{}: {}}}\n".format(
+                        song_info['info_type'],
+                        song_info['value'])
 
         for section in song_object['section_list']:
             for section_info_type in song_config['section_info_types']:
                 if section[section_info_type] is not None:
-                    song_string += "{}\n".format(section[section_info_type])
+                    song_string += "{{{}: {}}}\n".format(
+                        section[section_info_type]['info_type'],
+                        section[section_info_type]['value'])
 
             for element in section['element_list']:
+                start_of_x_tag = None
+
                 song_string += "\n"
                 if element['label'] is not None:
-                    song_string += "{}\n".format(element['label'])
+                    curr_label = element['label']
+                    song_string += "{{c: {}}}\n".format(element['label'])
+
+                    if not curr_label['pre']:
+                        if curr_label['label_type'] == "verse":
+                            song_string += "{start_of_verse}\n"
+                            start_of_x_tag = "verse"
+                        elif curr_label['label_type'] == "chorus":
+                            song_string += "{start_of_chorus}\n"
+                            start_of_x_tag = "chorus"
+                        elif curr_label['label_type'] == "bridge":
+                            song_string += "{start_of_bridge}\n"
+                            start_of_x_tag = "bridge"
 
                 for line in element['line_list']:
-                    chord_line = ""
-                    lyric_line = ""
+                    line_text = ""
                     if line['chord_dict'] != dict():
-                        for (spacing, chord) in \
-                                sorted(line['chord_dict'].items()):
-                            padding = spacing - len(chord_line)
-                            if padding < 0:
-                                raise ValueError("{} is not a large enough spacing (minimum {})".format(spacing, len(chord_line)))
-                            if isinstance(chord, Instruction):
-                                chord_line += " "*padding+'('+str(chord)+')'
-                            else:
-                                chord_line += " "*padding + str(chord)
-                        chord_line += "\n"
-                    if line['lyric'] is not None:
-                        lyric_line = line['lyric'] + "\n"
-                    song_string += chord_line + lyric_line
+                        if line['lyric'] is not None:
+                            line_text = line['lyric']
+
+                        if line['chord_dict'] is not None:
+                            for (spacing, chord) in reversed(sorted(
+                                    line['chord_dict'].items())):
+                                pre_chord = line_text[0:spacing]
+                                post_chord = line_text[spacing:]
+                                line_text = "{}[{}]{}".format(
+                                    pre_chord, chord, post_chord)
+                        line_text += "\n"
+                    song_string += line_text
+
+                if start_of_x_tag == 'verse':
+                    song_string += "{end_of_verse}\n"
+                elif start_of_x_tag == 'chorus':
+                    song_string += "{end_of_chorus}\n"
+                elif start_of_x_tag == 'bridge':
+                    song_string += "{end_of_bridge}\n"
+
 
         return song_string
 
 
 def decode(string_to_parse):
-    ''' Convert from plaintext to the Song object '''
+    ''' Convert from chordpro to the Song object '''
     decoder = Decoder()
     return decoder.decode(string_to_parse)
 
 
 def encode(song_object):
-    ''' Convert from the Song object to plaintext '''
+    ''' Convert from the Song object to chordpro '''
     encoder = Encoder()
     return encoder.encode(song_object)
 
