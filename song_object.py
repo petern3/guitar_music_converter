@@ -13,7 +13,6 @@ class SongLine(dict):
         self['chord_dict'] = dict()
 
         if isinstance(line_dict, dict):
-            #super().__init__(**line_dict)
             self['lyric'] = line_dict['lyric']
             for (spacing, chord_components) in line_dict['chord_dict'].items():
                 self['chord_dict'][int(spacing)] = \
@@ -38,7 +37,6 @@ class SongElement(dict):
         self['line_list'] = []
 
         if isinstance(element_dict, dict):
-            # super().__init__(**element_dict)
             if element_dict['label'] is not None:
                 self['label'] = Label(element_dict['label'])
             for line_components in element_dict['line_list']:
@@ -59,8 +57,8 @@ class SongSection(dict):
         song_config = json.load(song_config_file)
         song_config_file.close()
 
-        for info in song_config['section_info_types']:
-            self[info] = None
+        # for info in song_config['section_info_types']:
+        #     self[info] = None
         self['element_list'] = []
 
         if isinstance(section_dict, dict):
@@ -80,10 +78,10 @@ class Song(dict):
         song_config = json.load(song_config_file)
         song_config_file.close()
 
-        for single_info in song_config['song_single_info_types']:
-            self[single_info] = None
-        for multi_info in song_config['song_multi_info_types']:
-            self[multi_info] = []
+        # for single_info in song_config['song_single_info_types']:
+        #     self[single_info] = None
+        # for multi_info in song_config['song_multi_info_types']:
+        #     self[multi_info] = []
         self['section_list'] = []
 
         self.curr_section = None
@@ -91,11 +89,12 @@ class Song(dict):
         self.curr_line = None
 
         if isinstance(song_dict, dict):
-            # super().__init__(**song_dict)
             for (key, info_components) in song_dict.items():
                 if key != 'section_list':
                     if isinstance(info_components, list):
                         for actual_info_components in info_components:
+                            if self.get(key) is None:
+                                self[key] = []
                             self[key].append(SongInfo(actual_info_components))
                     elif info_components is not None:
                         self[key] = SongInfo(info_components)
@@ -124,6 +123,8 @@ class Song(dict):
         if info_type in song_config['song_single_info_types']:
             self[info_type] = info
         elif info_type in song_config['song_multi_info_types']:
+            if self.get(info_type) is None:
+                self[info_type] = []
             self[info_type].append(info)
         elif info_type in song_config['section_info_types']:
             if self.curr_section is None:

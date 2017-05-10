@@ -1,29 +1,24 @@
 {
-  "composer": [],
-  "album": [],
-  "subtitle": null,
-  "copyright": {
-    "value": "2003 Sony/ATV Music Publishing",
-    "info_type": "copyright"
-  },
   "title": {
-    "value": "Lifeline",
-    "info_type": "title"
+    "info_type": "title",
+    "value": "Lifeline"
   },
-  "ccli": null,
-  "artist": [],
   "author": [
     {
-      "value": "Brooke Fraser",
-      "info_type": "author"
+      "info_type": "author",
+      "value": "Brooke Fraser"
     }
   ],
-  "year": null,
-  "duration": null,
   "section_list": [
     {
-      "time": null,
-      "tempo": null,
+      "capo": {
+        "info_type": "capo",
+        "value": 1
+      },
+      "key": {
+        "info_type": "key",
+        "value": "D# (D)"
+      },
       "element_list": [
         {
           "line_list": [
@@ -31,18 +26,18 @@
               "lyric": null,
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "3": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "5": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -51,27 +46,27 @@
               "lyric": null,
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "3": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "5": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
             }
           ],
           "label": {
-            "value": null,
-            "pre": false,
             "alt": null,
+            "pre": false,
+            "value": null,
             "label_type": "intro"
           }
         },
@@ -81,13 +76,13 @@
               "lyric": " I have this sinking feeling",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "13": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 }
               }
@@ -96,8 +91,8 @@
               "lyric": " Something's weighing me down",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -106,18 +101,18 @@
               "lyric": " I am completely saturated",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "10": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "22": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -126,13 +121,13 @@
               "lyric": " The waves are crashing closer",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 }
               }
@@ -141,8 +136,8 @@
               "lyric": " My feet already drowned",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -151,27 +146,27 @@
               "lyric": " Doing the thing I said I hated",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "26": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "11": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 }
               }
             }
           ],
           "label": {
-            "value": 1,
-            "pre": false,
             "alt": null,
+            "pre": false,
+            "value": 1,
             "label_type": "verse"
           }
         },
@@ -181,23 +176,23 @@
               "lyric": " They've been swimming in the wrong waters",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "31": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "36": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -206,18 +201,18 @@
               "lyric": " Now they're pulling me down",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "25": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "13": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -226,23 +221,23 @@
               "lyric": " But I am clinging to you, never letting go",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "10": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "27": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "42": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 }
               }
@@ -251,27 +246,27 @@
               "lyric": "'Cause I know that you'll lift me out",
               "chord_dict": {
                 "9": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "26": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "35": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
             }
           ],
           "label": {
-            "value": null,
-            "pre": true,
             "alt": null,
+            "pre": true,
+            "value": null,
             "label_type": "chorus"
           }
         },
@@ -281,13 +276,13 @@
               "lyric": "Have your way here",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "10": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 }
               }
@@ -296,13 +291,13 @@
               "lyric": " Keep me afloat",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "9": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -311,18 +306,18 @@
               "lyric": "'Cause I know I'll sink without you",
               "chord_dict": {
                 "9": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "20": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "29": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -331,18 +326,18 @@
               "lyric": "Take this ocean of",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "10": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -351,18 +346,18 @@
               "lyric": "Pain that is mine",
               "chord_dict": {
                 "1": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "18": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "14": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 }
               }
@@ -371,8 +366,8 @@
               "lyric": "  Throw me a lifeline",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "2": {
@@ -382,9 +377,9 @@
             }
           ],
           "label": {
-            "value": null,
-            "pre": false,
             "alt": null,
+            "pre": false,
+            "value": null,
             "label_type": "chorus"
           }
         },
@@ -394,18 +389,18 @@
               "lyric": null,
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "3": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "5": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -414,18 +409,18 @@
               "lyric": null,
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "3": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "5": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -439,13 +434,13 @@
               "lyric": " I wake up feeling convicted",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "14": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 }
               }
@@ -454,8 +449,8 @@
               "lyric": " I know something's un-right",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -464,18 +459,18 @@
               "lyric": " Reacquaint my knees with the carpet",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "30": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 }
               }
@@ -484,13 +479,13 @@
               "lyric": " I have to get this out",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "11": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 }
               }
@@ -499,8 +494,8 @@
               "lyric": "'Cause it's obstructing you and I",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -509,27 +504,27 @@
               "lyric": " Dry up the seas that keep us parted",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "12": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "31": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
             }
           ],
           "label": {
-            "value": 2,
-            "pre": false,
             "alt": null,
+            "pre": false,
+            "value": 2,
             "label_type": "verse"
           }
         },
@@ -539,23 +534,23 @@
               "lyric": " 'Cause they've been swimming in the wrong waters",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "43": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "38": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "22": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -564,18 +559,18 @@
               "lyric": " Now they're pulling me down",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "25": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "13": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -584,23 +579,23 @@
               "lyric": " But I am clinging to you, never letting go",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "10": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "27": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "42": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 }
               }
@@ -609,27 +604,27 @@
               "lyric": "'Cause I know that you'll lift me out",
               "chord_dict": {
                 "9": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "26": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "35": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
             }
           ],
           "label": {
-            "value": null,
-            "pre": true,
             "alt": null,
+            "pre": true,
+            "value": null,
             "label_type": "chorus"
           }
         },
@@ -639,13 +634,13 @@
               "lyric": "Have your way here",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "10": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 }
               }
@@ -654,13 +649,13 @@
               "lyric": " Keep me afloat",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "9": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -669,18 +664,18 @@
               "lyric": "'Cause I know I'll sink without you",
               "chord_dict": {
                 "9": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "20": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "29": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -689,18 +684,18 @@
               "lyric": "Take this ocean of",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "10": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -709,18 +704,18 @@
               "lyric": "Pain that is mine",
               "chord_dict": {
                 "1": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "18": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "14": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 }
               }
@@ -729,8 +724,8 @@
               "lyric": "  Throw me a lifeline",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "2": {
@@ -740,9 +735,9 @@
             }
           ],
           "label": {
-            "value": null,
-            "pre": false,
             "alt": null,
+            "pre": false,
+            "value": null,
             "label_type": "chorus"
           }
         },
@@ -752,18 +747,18 @@
               "lyric": null,
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "3": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "5": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -772,18 +767,18 @@
               "lyric": null,
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "3": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "C"
                 },
                 "5": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -797,23 +792,23 @@
               "lyric": " They've been swimming in the wrong waters",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "31": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "36": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -822,18 +817,18 @@
               "lyric": " Now they're pulling me down",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "25": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "13": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -842,23 +837,23 @@
               "lyric": " But I am clinging to you, never letting go",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "10": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "27": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "42": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 }
               }
@@ -867,27 +862,27 @@
               "lyric": "'Cause I kno-oo-ooow",
               "chord_dict": {
                 "16": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "9": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "13": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
             }
           ],
           "label": {
-            "value": null,
-            "pre": true,
             "alt": null,
+            "pre": true,
+            "value": null,
             "label_type": "chorus"
           }
         },
@@ -897,23 +892,23 @@
               "lyric": " I'm   never letting go,  I'm   never,  'cause I",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "8": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "3": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "6": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -922,18 +917,18 @@
               "lyric": " Know  ye-eah",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "3": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "6": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -947,13 +942,13 @@
               "lyric": "That You'll have your way here",
               "chord_dict": {
                 "12": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "22": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 }
               }
@@ -962,13 +957,13 @@
               "lyric": " Keep me afloat",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "10": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -977,18 +972,18 @@
               "lyric": "'Cause I know I'll sink without you",
               "chord_dict": {
                 "9": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "20": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "29": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -997,18 +992,18 @@
               "lyric": "Take this ocean of",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "10": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -1017,32 +1012,32 @@
               "lyric": "Pain that is mine        ye-eah",
               "chord_dict": {
                 "24": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "1": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "19": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "14": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 }
               }
             }
           ],
           "label": {
-            "value": null,
-            "pre": false,
             "alt": null,
+            "pre": false,
+            "value": null,
             "label_type": "chorus"
           }
         },
@@ -1052,13 +1047,13 @@
               "lyric": "Have your way here",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "10": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 }
               }
@@ -1067,13 +1062,13 @@
               "lyric": " Keep me afloat",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 },
                 "9": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -1082,18 +1077,18 @@
               "lyric": "'Cause I know I'll sink without you",
               "chord_dict": {
                 "9": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "20": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "29": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 }
               }
@@ -1102,18 +1097,18 @@
               "lyric": "Take this ocean of",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 },
                 "10": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "15": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "G"
                 }
               }
@@ -1122,18 +1117,18 @@
               "lyric": "Pain that is mine",
               "chord_dict": {
                 "1": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "18": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "E"
                 },
                 "14": {
-                  "bass": null,
                   "mod": "m",
+                  "bass": null,
                   "root": "A"
                 }
               }
@@ -1142,8 +1137,8 @@
               "lyric": "  Throw me a lifeline",
               "chord_dict": {
                 "0": {
-                  "bass": null,
                   "mod": null,
+                  "bass": null,
                   "root": "D"
                 },
                 "2": {
@@ -1154,16 +1149,11 @@
           ],
           "label": null
         }
-      ],
-      "capo": {
-        "value": 1,
-        "info_type": "capo"
-      },
-      "key": {
-        "value": "D# (D)",
-        "info_type": "key"
-      }
+      ]
     }
   ],
-  "arranger": []
+  "copyright": {
+    "info_type": "copyright",
+    "value": "2003 Sony/ATV Music Publishing"
+  }
 }

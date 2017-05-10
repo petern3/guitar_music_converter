@@ -152,21 +152,21 @@ class Decoder(object):
             elif curr_line_type == 'lyric':
                 if not started_song:  # There is likely meta-data here
                     meta_data = {'info_type': None, 'value': None}
-                    if new_song['author'] == []:
+                    if new_song.get('author') is None:
                         if line_text.startswith('by') or \
-                                new_song['title'] is not None:
+                                new_song.get('title') is not None:
                             # Assume second line is author
                             meta_data['info_type'] = 'author'
                             meta_data['value'] = line_text[2:].strip()
                             new_song.set_info(SongInfo(meta_data))
                             continue
-                    if new_song['title'] is None:
+                    if new_song.get('title') is None:
                         # Assume first line is title
                         meta_data['info_type'] = 'title'
                         meta_data['value'] = line_text.strip()
                         new_song.set_info(SongInfo(meta_data))
                         continue
-                    if new_song['copyright'] is None:
+                    if new_song.get('copyright') is None:
                         if line_text.startswith('(c)'):
                             meta_data['info_type'] = 'copyright'
                             meta_data['value'] = line_text[3:].strip()
@@ -202,17 +202,17 @@ class Encoder(object):
         song_string = ""
 
         for song_info_type in song_config['song_single_info_types']:
-            if song_object[song_info_type] is not None:
+            if song_object.get(song_info_type) is not None:
                 song_string += "{}\n".format(song_object[song_info_type])
 
         for song_info_type in song_config['song_multi_info_types']:
-            if song_object[song_info_type] != []:
+            if song_object.get(song_info_type) is not None:
                 for song_info in song_object[song_info_type]:
                     song_string += "{}\n".format(song_info)
 
         for section in song_object['section_list']:
             for section_info_type in song_config['section_info_types']:
-                if section[section_info_type] is not None:
+                if section.get(section_info_type) is not None:
                     song_string += "{}\n".format(section[section_info_type])
 
             for element in section['element_list']:
