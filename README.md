@@ -34,14 +34,15 @@ python packages.
 ### 2) Source Parsers
     source_parsers/*
 
-For each source, there is one parser capable of reading and writing from the
-source and feeding it into one of the format_parsers. Sources include:
-- Text files
-- URLs**
-  - HTTP/HTTPS**
-  - FTP**
-- MS Word files**
-- MS Powerpoint files* (this is because I have lots of music in an obscure powerpoint format)
+Each source_parser converts the music from whatever file format it comes from into a string This string has yet to be converted into the Song format, which the format_parsers do. Sources include:
+
+#### Text files
+#### URLs**
+##### HTTP/HTTPS**
+##### FTP**
+#### MS Word files**
+#### MS Powerpoint files*
+(This is because I have lots of music in an obscure powerpoint format)
 
 _*Will be implemented_
 
@@ -50,8 +51,8 @@ _**May be implemented_
 ### 3) Format Parsers
     format_parsers/*
 
-When the source_parser has created a string of the relevant section, the
-format_parsers will turn it into the Song format. Formats include:
+Each format_parser converts the music from a plaintext string of the song into the Song format. Formats include:
+
 #### Plaintext
 
 
@@ -118,14 +119,3 @@ of information it holds.
       }
     }
 
-## Known Bugs
-
-- When non-ascii characters are on a line, the chords are placed too early in
-the line (in the chordpro parser). Suspected to be related to
-[PEP 261](https://www.python.org/dev/peps/pep-0261/), specifically surrigate
-pairs.
-
-- In an attempt to fix the above, it attempts to convert unicode characters to
-ascii, but does not always work. May be related to the python build, see the
-[unidecode page](https://pypi.python.org/pypi/Unidecode), under 'Requirements'.
-If fixed, be sure to check the chordpro parser chord spacings.
